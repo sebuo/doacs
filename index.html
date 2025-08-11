@@ -1,19 +1,45 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>BPMN 4ever</title>
-  <style>
-    html, body, #canvas {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-  <script type="module" crossorigin src="/doacs/assets/index-DvVtkbpa.js"></script>
+  <meta charset="utf-8" />
+  <title>AFib CDSS - Questionnaire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="./style.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Cut the Crab</h1>
-  <div id="canvas"></div>
+  <header class="app-header">
+    <h1>AFib CDSS - Questionnaire</h1>
+    <p class="subtitle">Single-page workflow combining patient info, CHA<sub>2</sub>DS<sub>2</sub>-VASc, contraindications, interactions, and treatment recommendation.</p>
+  </header>
+
+  <main id="app">
+    <ol id="stepper" class="stepper" aria-label="Questionnaire Steps">
+      <li class="step is-active" data-step="0"><span>0</span> Patient info</li>
+      <li class="step" data-step="1"><span>1</span> CHA<sub>2</sub>DS<sub>2</sub>-VASc</li>
+      <li class="step" data-step="2"><span>2</span> Contraindications</li>
+      <li class="step" data-step="3"><span>3</span> Interactions</li>
+      <li class="step" data-step="4"><span>4</span> Recommendation</li>
+    </ol>
+
+    <div id="progress">
+      <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+    </div>
+
+    <form id="questionary" novalidate>
+      <!-- Dynamic content injected here by questionary.js -->
+    </form>
+
+    <div class="nav">
+      <button id="btnPrev" class="btn secondary" type="button" disabled>Back</button>
+      <button id="btnNext" class="btn primary" type="button">Next</button>
+      <button id="btnSubmit" class="btn success" type="submit" hidden>Finish</button>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <small>Built with plain JavaScript. No frameworks.</small>
+  </footer>
+
+  <script src="./questionary.js"></script>
 </body>
 </html>
